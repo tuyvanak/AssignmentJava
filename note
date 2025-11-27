@@ -1,0 +1,18 @@
+three different transformers depending on the data characteristics:
+
+1. MinMaxScaler:
+   This transformer rescales numerical features to a fixed range, typically [0, 1].
+   It is useful for models that rely on distance calculations, such as KNN or SVM with RBF,
+   and it preserves the original shape of the distribution. However, it is sensitive to outliers.
+
+2. StandardScaler:
+   This transformer standardizes features by removing the mean and scaling to unit variance.
+   It is appropriate when using linear models or gradient-based algorithms because they assume
+   features on similar scales. It helps optimization converge faster. However, it does not
+   correct skewed distributions.
+
+3. PowerTransformer (Yeo–Johnson):
+   This transformer applies a nonlinear transformation that reduces skewness and makes the
+   distribution more Gaussian-like. It stabilizes variance and can improve performance for
+   linear models. Unlike Box–Cox, Yeo–Johnson supports negative values. It is useful when
+   numerical features are highly skewed.
